@@ -32,8 +32,8 @@ export function EnquiryDialog({
         </DialogHeader>
         <EnquiryForm
           className="mt-2"
-          contextLabel={contextLabel}
-          defaultDestination={defaultDestination}
+          {...(contextLabel ? { contextLabel } : {})}
+          {...(defaultDestination ? { defaultDestination } : {})}
         />
       </DialogContent>
     </Dialog>
