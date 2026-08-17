@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
-import { Menu, X, Plane } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import logoAsset from "@/assets/flygora-logo.png.asset.json";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 import { siteConfig, navLinks } from "@/config/site";
