@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
-import { Menu, X, Plane } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import logoAsset from "@/assets/flygora-logo.png.asset.json";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 import { siteConfig, navLinks } from "@/config/site";
@@ -36,15 +37,14 @@ export function Navbar() {
         <Link to="/" className="group flex items-center gap-2.5">
           <span
             className={cn(
-              "flex size-9 items-center justify-center rounded-xl transition-colors",
-              transparent ? "bg-primary-foreground/15 backdrop-blur-sm" : "bg-primary",
+              "flex size-10 items-center justify-center overflow-hidden rounded-xl transition-colors",
+              transparent ? "bg-primary-foreground/95 backdrop-blur-sm" : "bg-background",
             )}
           >
-            <Plane
-              className={cn(
-                "size-4.5 -rotate-45 transition-transform group-hover:translate-x-0.5",
-                transparent ? "text-accent" : "text-accent",
-              )}
+            <img
+              src={logoAsset.url}
+              alt={`${siteConfig.name} logo`}
+              className="size-9 object-contain transition-transform group-hover:scale-105"
             />
           </span>
           <span className="leading-tight">
@@ -62,10 +62,11 @@ export function Navbar() {
                 transparent ? "text-primary-foreground/70" : "text-muted-foreground",
               )}
             >
-              Travel &amp; Tourism
+              {siteConfig.tagline}
             </span>
           </span>
         </Link>
+
 
         <ul className="hidden items-center gap-1 lg:flex">
           {navLinks.map((link) => (

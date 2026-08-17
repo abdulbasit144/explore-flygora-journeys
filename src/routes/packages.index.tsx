@@ -9,18 +9,18 @@ import { packages, packageCategories } from "@/data/packages";
 import { siteConfig } from "@/config/site";
 
 type PackageSearch = {
-  destination?: string;
-  type?: string;
-  date?: string;
-  travelers?: string;
+  destination?: string | undefined;
+  type?: string | undefined;
+  date?: string | undefined;
+  travelers?: string | undefined;
 };
 
 export const Route = createFileRoute("/packages/")({
   validateSearch: (search: Record<string, unknown>): PackageSearch => ({
-    destination: typeof search.destination === "string" ? search.destination : undefined,
-    type: typeof search.type === "string" ? search.type : undefined,
-    date: typeof search.date === "string" ? search.date : undefined,
-    travelers: typeof search.travelers === "string" ? search.travelers : undefined,
+    destination: typeof search["destination"] === "string" ? search["destination"] : undefined,
+    type: typeof search["type"] === "string" ? search["type"] : undefined,
+    date: typeof search["date"] === "string" ? search["date"] : undefined,
+    travelers: typeof search["travelers"] === "string" ? search["travelers"] : undefined,
   }),
   head: () => ({
     meta: [
